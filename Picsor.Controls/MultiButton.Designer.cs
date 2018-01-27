@@ -41,9 +41,9 @@
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(105)))), ((int)(((byte)(53)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Silver;
-            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Location = new System.Drawing.Point(1, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(105, 25);
             this.button1.TabIndex = 0;
             this.button1.Text = "JPG";
             this.button1.UseVisualStyleBackColor = false;
@@ -57,9 +57,9 @@
             this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(105)))), ((int)(((byte)(53)))));
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Silver;
-            this.button2.Location = new System.Drawing.Point(104, 3);
+            this.button2.Location = new System.Drawing.Point(105, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(105, 25);
             this.button2.TabIndex = 1;
             this.button2.Text = "PNG";
             this.button2.UseVisualStyleBackColor = false;
@@ -73,9 +73,9 @@
             this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(105)))), ((int)(((byte)(53)))));
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.Silver;
-            this.button3.Location = new System.Drawing.Point(211, 3);
+            this.button3.Location = new System.Drawing.Point(210, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(105, 25);
             this.button3.TabIndex = 2;
             this.button3.Text = "Preserve";
             this.button3.UseVisualStyleBackColor = false;
@@ -90,7 +90,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "MultiButton";
-            this.Size = new System.Drawing.Size(295, 29);
+            this.Size = new System.Drawing.Size(315, 34);
             this.ResumeLayout(false);
 
         }
