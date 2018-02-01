@@ -83,7 +83,6 @@ namespace Picsor.Controls
         public void SetCustomFont(FontFamily font, int baseSize)
         {
             tbPercentage.Font = new Font(font, baseSize);
-            lbPercentage.Font = new Font(font, baseSize);
         }
     }
 }
