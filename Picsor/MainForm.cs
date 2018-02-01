@@ -36,8 +36,11 @@ namespace Picsor
                 {
                     customizableControl.SetCustomFont(_Pfc.Families[0], 40);
                 }
-
-                CustomizeControls(control.Controls);
+                else
+                {
+                    control.Font = new Font(_Pfc.Families[0], control.Font.Size);
+                    CustomizeControls(control.Controls);
+                }
             }
         }
         
