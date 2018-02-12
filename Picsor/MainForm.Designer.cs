@@ -41,22 +41,24 @@
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.percentBox4 = new Picsor.Controls.PercentBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.percentBox3 = new Picsor.Controls.PercentBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.percentBox1 = new Picsor.Controls.PercentBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.multiButton1 = new Picsor.Controls.MultiButton();
             this.percentBox2 = new Picsor.Controls.PercentBox();
-            this.percentBox1 = new Picsor.Controls.PercentBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.percentBox3 = new Picsor.Controls.PercentBox();
-            this.percentBox4 = new Picsor.Controls.PercentBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.picsorBackgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -246,6 +248,83 @@
             this.panel5.Size = new System.Drawing.Size(635, 190);
             this.panel5.TabIndex = 3;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Silver;
+            this.label8.Location = new System.Drawing.Point(482, 159);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(108, 18);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Max height (px)";
+            // 
+            // percentBox4
+            // 
+            this.percentBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.percentBox4.Location = new System.Drawing.Point(452, 95);
+            this.percentBox4.MaxValue = 9999;
+            this.percentBox4.MinValue = 0;
+            this.percentBox4.Name = "percentBox4";
+            this.percentBox4.Size = new System.Drawing.Size(166, 70);
+            this.percentBox4.TabIndex = 12;
+            this.percentBox4.Value = 9998;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.Silver;
+            this.label7.Location = new System.Drawing.Point(295, 159);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(107, 18);
+            this.label7.TabIndex = 3;
+            this.label7.Text = "Max Width (px)";
+            // 
+            // percentBox3
+            // 
+            this.percentBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.percentBox3.Location = new System.Drawing.Point(263, 95);
+            this.percentBox3.MaxValue = 9999;
+            this.percentBox3.MinValue = 0;
+            this.percentBox3.Name = "percentBox3";
+            this.percentBox3.Size = new System.Drawing.Size(166, 70);
+            this.percentBox3.TabIndex = 11;
+            this.percentBox3.Value = 9998;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Silver;
+            this.label11.Location = new System.Drawing.Point(92, 159);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(86, 18);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Percent (%)";
+            // 
+            // percentBox1
+            // 
+            this.percentBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.percentBox1.Location = new System.Drawing.Point(53, 95);
+            this.percentBox1.MaxValue = 100;
+            this.percentBox1.MinValue = 0;
+            this.percentBox1.Name = "percentBox1";
+            this.percentBox1.Size = new System.Drawing.Size(134, 70);
+            this.percentBox1.TabIndex = 9;
+            this.percentBox1.Value = 100;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Silver;
+            this.label10.Location = new System.Drawing.Point(295, 58);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 16);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Size Based";
+            // 
             // button3
             // 
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(234)))), ((int)(((byte)(17)))));
@@ -268,28 +347,6 @@
             this.button2.Size = new System.Drawing.Size(20, 20);
             this.button2.TabIndex = 6;
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Silver;
-            this.label8.Location = new System.Drawing.Point(482, 159);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(108, 18);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Max height (px)";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(295, 159);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 18);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Max Width (px)";
             // 
             // label4
             // 
@@ -332,29 +389,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(635, 200);
             this.panel4.TabIndex = 2;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Silver;
-            this.label6.Location = new System.Drawing.Point(288, 166);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 16);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Quality";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Silver;
-            this.label10.Location = new System.Drawing.Point(295, 58);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 16);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Size Based";
             // 
             // multiButton1
             // 
@@ -375,49 +409,25 @@
             this.percentBox2.TabIndex = 4;
             this.percentBox2.Value = 100;
             // 
-            // percentBox1
+            // label6
             // 
-            this.percentBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.percentBox1.Location = new System.Drawing.Point(53, 95);
-            this.percentBox1.MaxValue = 100;
-            this.percentBox1.MinValue = 0;
-            this.percentBox1.Name = "percentBox1";
-            this.percentBox1.Size = new System.Drawing.Size(134, 70);
-            this.percentBox1.TabIndex = 9;
-            this.percentBox1.Value = 100;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Silver;
+            this.label6.Location = new System.Drawing.Point(288, 166);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(49, 16);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Quality";
             // 
-            // label11
+            // picsorBackgroundWorker
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Silver;
-            this.label11.Location = new System.Drawing.Point(92, 159);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(86, 18);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Percent (%)";
+            this.picsorBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.picsorBackgroundWorker_DoWork);
             // 
-            // percentBox3
+            // openFileDialog
             // 
-            this.percentBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.percentBox3.Location = new System.Drawing.Point(263, 95);
-            this.percentBox3.MaxValue = 9999;
-            this.percentBox3.MinValue = 0;
-            this.percentBox3.Name = "percentBox3";
-            this.percentBox3.Size = new System.Drawing.Size(166, 70);
-            this.percentBox3.TabIndex = 11;
-            this.percentBox3.Value = 9998;
-            // 
-            // percentBox4
-            // 
-            this.percentBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.percentBox4.Location = new System.Drawing.Point(452, 95);
-            this.percentBox4.MaxValue = 9999;
-            this.percentBox4.MinValue = 0;
-            this.percentBox4.Name = "percentBox4";
-            this.percentBox4.Size = new System.Drawing.Size(166, 70);
-            this.percentBox4.TabIndex = 12;
-            this.percentBox4.Value = 9998;
+            this.openFileDialog.FileName = "openFileDialog";
+            this.openFileDialog.Multiselect = true;
             // 
             // MainForm
             // 
@@ -481,6 +491,8 @@
         private Controls.PercentBox percentBox3;
         private System.Windows.Forms.Label label11;
         private Controls.PercentBox percentBox4;
+        private System.ComponentModel.BackgroundWorker picsorBackgroundWorker;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
 

@@ -1,9 +1,11 @@
-﻿using Picsor.Controls;
+﻿using Picsor.Compressor;
+using Picsor.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
@@ -57,9 +59,50 @@ namespace Picsor
             this.Close();
         }
 
-        private void panel4_Paint(object sender, PaintEventArgs e)
+        private void ExecuteCompression()
         {
+            picsorBackgroundWorker.RunWorkerAsync();
+        }
 
+        private void picsorBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            string directory = openFileDialog
+                .FileName.Substring(0, openFileDialog.FileName.LastIndexOf('\\'))
+                                  + "\\Converted";
+
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+
+            // TODO SET PARAMS
+            int width = 0;
+            int height = 0;
+            int quality = 0;
+
+            foreach (var file in openFileDialog.FileNames)
+            {
+                ImageCompressor imageCompressor = new ImageCompressor(new Bitmap(file));
+
+                // Force codec
+                var codec = imageCompressor.GetCodec(ImageFormat.Jpeg);
+                codec = imageCompressor.GetCodec(ImageFormat.Png);
+                // Keep current
+                codec = imageCompressor.GetCurrentCodec();
+
+                // Type of resizing
+                Bitmap resized = null; // Null for original size
+                resized = imageCompressor.ResizeMaxDimensions(width, height);
+                resized = imageCompressor.ResizePercentage(0.0f / 100f);
+
+                // Encode and save
+                imageCompressor.EncodeAndSave(
+                    codec,
+                    directory + "\\" + file.Substring(file.LastIndexOf('\\') + 1),
+                    quality, 
+                    resized);
+
+            }
         }
     }
 }

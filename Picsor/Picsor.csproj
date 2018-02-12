@@ -93,6 +93,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Picsor.Compressor\Picsor.Compressor.csproj">
+      <Project>{74D8FDB6-ADE4-461A-9E49-FFA3E7028382}</Project>
+      <Name>Picsor.Compressor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Picsor.Controls\Picsor.Controls.csproj">
       <Project>{96264e33-8022-439f-b0a4-d5c367745841}</Project>
       <Name>Picsor.Controls</Name>
