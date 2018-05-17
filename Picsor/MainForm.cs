@@ -53,15 +53,18 @@ namespace Picsor
             CustomizeControls(Controls);
         }
         
-
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnSearch_Click(object sender, EventArgs e)
         {
-            this.Close();
+            openFileDialog.ShowDialog();
+            if (openFileDialog.FileNames.Count() != 0)
+            {
+                ExecuteCompression();
+            }
         }
 
         private void ExecuteCompression()
         {
-            picsorBackgroundWorker.RunWorkerAsync();
+            // picsorBackgroundWorker.RunWorkerAsync();
         }
 
         private void picsorBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -103,6 +106,11 @@ namespace Picsor
                     resized);
 
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

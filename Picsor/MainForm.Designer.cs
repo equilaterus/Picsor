@@ -39,7 +39,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.percentBox4 = new Picsor.Controls.PercentBox();
@@ -175,7 +175,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.label9);
             this.panel3.Controls.Add(this.panel6);
-            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.btnSearch);
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Location = new System.Drawing.Point(172, 38);
@@ -213,18 +213,19 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Encoding";
             // 
-            // button1
+            // btnSearch
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(234)))), ((int)(((byte)(17)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.button1.Location = new System.Drawing.Point(227, 426);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 30);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Search";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(234)))), ((int)(((byte)(17)))));
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnSearch.Location = new System.Drawing.Point(227, 426);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(200, 30);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // panel5
             // 
@@ -426,7 +427,6 @@
             // 
             // openFileDialog
             // 
-            this.openFileDialog.FileName = "openFileDialog";
             this.openFileDialog.Multiselect = true;
             // 
             // MainForm
@@ -469,7 +469,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
