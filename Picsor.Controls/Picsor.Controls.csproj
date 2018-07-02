@@ -42,11 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IFontCustomizable.cs" />
-    <Compile Include="MultiButton.cs">
+    <Compile Include="FormatSelection.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="MultiButton.Designer.cs">
-      <DependentUpon>MultiButton.cs</DependentUpon>
+    <Compile Include="FormatSelection.Designer.cs">
+      <DependentUpon>FormatSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MultiButton.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="PercentBox.cs">
       <SubType>UserControl</SubType>
@@ -58,8 +61,8 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MultiButton.resx">
-      <DependentUpon>MultiButton.cs</DependentUpon>
+    <EmbeddedResource Include="FormatSelection.resx">
+      <DependentUpon>FormatSelection.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PercentBox.resx">
       <DependentUpon>PercentBox.cs</DependentUpon>

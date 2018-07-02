@@ -42,23 +42,23 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.percentBox4 = new Picsor.Controls.PercentBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.percentBox3 = new Picsor.Controls.PercentBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.percentBox1 = new Picsor.Controls.PercentBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSize = new System.Windows.Forms.Button();
+            this.btnPercentage = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.multiButton1 = new Picsor.Controls.MultiButton();
-            this.percentBox2 = new Picsor.Controls.PercentBox();
             this.label6 = new System.Windows.Forms.Label();
             this.picsorBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.pbMaxheight = new Picsor.Controls.PercentBox();
+            this.pbMaxWidth = new Picsor.Controls.PercentBox();
+            this.pbPercent = new Picsor.Controls.PercentBox();
+            this.pbQuality = new Picsor.Controls.PercentBox();
+            this.formatSelection = new Picsor.Controls.FormatSelection();
             this.panel1.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -234,14 +234,14 @@
             this.panel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
             this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.percentBox4);
+            this.panel5.Controls.Add(this.pbMaxheight);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.percentBox3);
+            this.panel5.Controls.Add(this.pbMaxWidth);
             this.panel5.Controls.Add(this.label11);
-            this.panel5.Controls.Add(this.percentBox1);
+            this.panel5.Controls.Add(this.pbPercent);
             this.panel5.Controls.Add(this.label10);
-            this.panel5.Controls.Add(this.button3);
-            this.panel5.Controls.Add(this.button2);
+            this.panel5.Controls.Add(this.btnSize);
+            this.panel5.Controls.Add(this.btnPercentage);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.panel2);
             this.panel5.Location = new System.Drawing.Point(10, 7);
@@ -260,17 +260,6 @@
             this.label8.TabIndex = 4;
             this.label8.Text = "Max height (px)";
             // 
-            // percentBox4
-            // 
-            this.percentBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.percentBox4.Location = new System.Drawing.Point(452, 95);
-            this.percentBox4.MaxValue = 9999;
-            this.percentBox4.MinValue = 0;
-            this.percentBox4.Name = "percentBox4";
-            this.percentBox4.Size = new System.Drawing.Size(166, 70);
-            this.percentBox4.TabIndex = 12;
-            this.percentBox4.Value = 9998;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -281,17 +270,6 @@
             this.label7.Size = new System.Drawing.Size(107, 18);
             this.label7.TabIndex = 3;
             this.label7.Text = "Max Width (px)";
-            // 
-            // percentBox3
-            // 
-            this.percentBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.percentBox3.Location = new System.Drawing.Point(263, 95);
-            this.percentBox3.MaxValue = 9999;
-            this.percentBox3.MinValue = 0;
-            this.percentBox3.Name = "percentBox3";
-            this.percentBox3.Size = new System.Drawing.Size(166, 70);
-            this.percentBox3.TabIndex = 11;
-            this.percentBox3.Value = 9998;
             // 
             // label11
             // 
@@ -304,17 +282,6 @@
             this.label11.TabIndex = 10;
             this.label11.Text = "Percent (%)";
             // 
-            // percentBox1
-            // 
-            this.percentBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.percentBox1.Location = new System.Drawing.Point(53, 95);
-            this.percentBox1.MaxValue = 100;
-            this.percentBox1.MinValue = 0;
-            this.percentBox1.Name = "percentBox1";
-            this.percentBox1.Size = new System.Drawing.Size(134, 70);
-            this.percentBox1.TabIndex = 9;
-            this.percentBox1.Value = 100;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -326,28 +293,30 @@
             this.label10.TabIndex = 8;
             this.label10.Text = "Size Based";
             // 
-            // button3
+            // btnSize
             // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(234)))), ((int)(((byte)(17)))));
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(105)))), ((int)(((byte)(50)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(263, 56);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(20, 20);
-            this.button3.TabIndex = 7;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(234)))), ((int)(((byte)(17)))));
+            this.btnSize.FlatAppearance.BorderSize = 2;
+            this.btnSize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(105)))), ((int)(((byte)(50)))));
+            this.btnSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSize.Location = new System.Drawing.Point(263, 56);
+            this.btnSize.Name = "btnSize";
+            this.btnSize.Size = new System.Drawing.Size(20, 20);
+            this.btnSize.TabIndex = 7;
+            this.btnSize.UseVisualStyleBackColor = true;
+            this.btnSize.Click += new System.EventHandler(this.btnSize_Click);
             // 
-            // button2
+            // btnPercentage
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(234)))), ((int)(((byte)(17)))));
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(19, 56);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(20, 20);
-            this.button2.TabIndex = 6;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnPercentage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(234)))), ((int)(((byte)(17)))));
+            this.btnPercentage.FlatAppearance.BorderSize = 2;
+            this.btnPercentage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPercentage.Location = new System.Drawing.Point(19, 56);
+            this.btnPercentage.Name = "btnPercentage";
+            this.btnPercentage.Size = new System.Drawing.Size(20, 20);
+            this.btnPercentage.TabIndex = 6;
+            this.btnPercentage.UseVisualStyleBackColor = true;
+            this.btnPercentage.Click += new System.EventHandler(this.btnPercentage_Click);
             // 
             // label4
             // 
@@ -383,32 +352,13 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.panel4.Controls.Add(this.multiButton1);
-            this.panel4.Controls.Add(this.percentBox2);
+            this.panel4.Controls.Add(this.formatSelection);
+            this.panel4.Controls.Add(this.pbQuality);
             this.panel4.Controls.Add(this.label6);
             this.panel4.Location = new System.Drawing.Point(10, 210);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(635, 200);
             this.panel4.TabIndex = 2;
-            // 
-            // multiButton1
-            // 
-            this.multiButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.multiButton1.Location = new System.Drawing.Point(157, 49);
-            this.multiButton1.Name = "multiButton1";
-            this.multiButton1.Size = new System.Drawing.Size(315, 34);
-            this.multiButton1.TabIndex = 5;
-            // 
-            // percentBox2
-            // 
-            this.percentBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.percentBox2.Location = new System.Drawing.Point(229, 97);
-            this.percentBox2.MaxValue = 100;
-            this.percentBox2.MinValue = 0;
-            this.percentBox2.Name = "percentBox2";
-            this.percentBox2.Size = new System.Drawing.Size(166, 66);
-            this.percentBox2.TabIndex = 4;
-            this.percentBox2.Value = 100;
             // 
             // label6
             // 
@@ -428,6 +378,58 @@
             // openFileDialog
             // 
             this.openFileDialog.Multiselect = true;
+            // 
+            // pbMaxheight
+            // 
+            this.pbMaxheight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.pbMaxheight.Location = new System.Drawing.Point(452, 95);
+            this.pbMaxheight.MaxValue = 9999;
+            this.pbMaxheight.MinValue = 0;
+            this.pbMaxheight.Name = "pbMaxheight";
+            this.pbMaxheight.Size = new System.Drawing.Size(166, 70);
+            this.pbMaxheight.TabIndex = 12;
+            this.pbMaxheight.Value = 9998;
+            // 
+            // pbMaxWidth
+            // 
+            this.pbMaxWidth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.pbMaxWidth.Location = new System.Drawing.Point(263, 95);
+            this.pbMaxWidth.MaxValue = 9999;
+            this.pbMaxWidth.MinValue = 0;
+            this.pbMaxWidth.Name = "pbMaxWidth";
+            this.pbMaxWidth.Size = new System.Drawing.Size(166, 70);
+            this.pbMaxWidth.TabIndex = 11;
+            this.pbMaxWidth.Value = 9998;
+            // 
+            // pbPercent
+            // 
+            this.pbPercent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.pbPercent.Location = new System.Drawing.Point(53, 95);
+            this.pbPercent.MaxValue = 100;
+            this.pbPercent.MinValue = 0;
+            this.pbPercent.Name = "pbPercent";
+            this.pbPercent.Size = new System.Drawing.Size(134, 70);
+            this.pbPercent.TabIndex = 9;
+            this.pbPercent.Value = 100;
+            // 
+            // pbQuality
+            // 
+            this.pbQuality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.pbQuality.Location = new System.Drawing.Point(229, 97);
+            this.pbQuality.MaxValue = 100;
+            this.pbQuality.MinValue = 0;
+            this.pbQuality.Name = "pbQuality";
+            this.pbQuality.Size = new System.Drawing.Size(166, 66);
+            this.pbQuality.TabIndex = 4;
+            this.pbQuality.Value = 100;
+            // 
+            // formatSelection
+            // 
+            this.formatSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.formatSelection.Location = new System.Drawing.Point(188, 61);
+            this.formatSelection.Name = "formatSelection";
+            this.formatSelection.Size = new System.Drawing.Size(250, 30);
+            this.formatSelection.TabIndex = 5;
             // 
             // MainForm
             // 
@@ -476,23 +478,23 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
-        private Controls.PercentBox percentBox2;
+        private Controls.PercentBox pbQuality;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
-        private Controls.MultiButton multiButton1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSize;
+        private System.Windows.Forms.Button btnPercentage;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private Controls.PercentBox percentBox1;
-        private Controls.PercentBox percentBox3;
+        private Controls.PercentBox pbPercent;
+        private Controls.PercentBox pbMaxWidth;
         private System.Windows.Forms.Label label11;
-        private Controls.PercentBox percentBox4;
+        private Controls.PercentBox pbMaxheight;
         private System.ComponentModel.BackgroundWorker picsorBackgroundWorker;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private Controls.FormatSelection formatSelection;
     }
 }
 

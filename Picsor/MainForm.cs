@@ -26,7 +26,8 @@ namespace Picsor
             panelTop.MouseUp += new MouseEventHandler(Form_MouseUp);
             panelTop.MouseMove += new MouseEventHandler(Form_MouseMove);
         }
-
+        Boolean percentage;
+        Boolean size;
         private PrivateFontCollection _Pfc;
 
         private void CustomizeControls(Control.ControlCollection controls)
@@ -64,7 +65,7 @@ namespace Picsor
 
         private void ExecuteCompression()
         {
-            // picsorBackgroundWorker.RunWorkerAsync();
+            picsorBackgroundWorker.RunWorkerAsync();
         }
 
         private void picsorBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
@@ -79,24 +80,40 @@ namespace Picsor
             }
 
             // TODO SET PARAMS
-            int width = 0;
-            int height = 0;
-            int quality = 0;
+            int width = pbMaxWidth.Value;
+            int height = pbMaxheight.Value;
+            int quality = pbQuality.Value;
 
             foreach (var file in openFileDialog.FileNames)
             {
                 ImageCompressor imageCompressor = new ImageCompressor(new Bitmap(file));
 
-                // Force codec
-                var codec = imageCompressor.GetCodec(ImageFormat.Jpeg);
-                codec = imageCompressor.GetCodec(ImageFormat.Png);
-                // Keep current
-                codec = imageCompressor.GetCurrentCodec();
+                // Define code
+                ImageCodecInfo codec;
+                if (formatSelection.Current.Text == "JPG")
+                {
+                    codec = imageCompressor.GetCodec(ImageFormat.Jpeg);
+                }
+                else if (formatSelection.Current.Text == "PNG")
+                {
+                    codec = imageCompressor.GetCodec(ImageFormat.Png);
+                }
+                else
+                {
+                    codec = imageCompressor.GetCurrentCodec();
+                }
+                
 
                 // Type of resizing
                 Bitmap resized = null; // Null for original size
-                resized = imageCompressor.ResizeMaxDimensions(width, height);
-                resized = imageCompressor.ResizePercentage(0.0f / 100f);
+                if(size == true)
+                {
+                    resized = imageCompressor.ResizeMaxDimensions(width, height);
+                }
+                if(percentage == true)
+                {
+                    resized = imageCompressor.ResizePercentage(pbPercent.Value / 100f);
+                }
 
                 // Encode and save
                 imageCompressor.EncodeAndSave(
@@ -111,6 +128,19 @@ namespace Picsor
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnPercentage_Click(object sender, EventArgs e)
+        {
+            percentage = true;
+            size = false;
+
+        }
+
+        private void btnSize_Click(object sender, EventArgs e)
+        {
+            size = true;
+            percentage = false;
         }
     }
 }
