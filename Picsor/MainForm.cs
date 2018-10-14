@@ -30,9 +30,6 @@ namespace Picsor
             panelTop.MouseMove += new MouseEventHandler(Form_MouseMove);
         }
 
-
-        Boolean percentage;
-        Boolean size;
         private PrivateFontCollection _Pfc;
 
         private void CustomizeControls(Control.ControlCollection controls)
@@ -63,6 +60,8 @@ namespace Picsor
         private void btnSearch_Click(object sender, EventArgs e)
         {
             openFileDialog.ShowDialog();
+            imagesList.Images.Clear();
+            listviewImages.Clear();
             for (int i = 0; i < openFileDialog.FileNames.Count(); i++)
             {
                 try
@@ -103,47 +102,50 @@ namespace Picsor
                 Directory.CreateDirectory(directory);
             }
 
-            // TODO SET PARAMS
-            int width = pbMaxWidth.Value;
-            int height = pbMaxheight.Value;
-            int quality = pbQuality.Value;
-
             foreach (var file in openFileDialog.FileNames)
             {
                 ImageCompressor imageCompressor = new ImageCompressor(new Bitmap(file));
 
-                // Define code
-                ImageCodecInfo codec;
+                // Type of resizing
+                Bitmap resized = null;
+                if(panelSize.Visible == true)
+                {
+                    resized = imageCompressor.ResizeMaxDimensions(pbMaxWidth.Value, pbMaxheight.Value);
+                }
+                if(panelPercentage.Visible == true)
+                {
+                    resized = imageCompressor.ResizePercentage(pbPercent.Value / 100f);
+                }
+
+                // Define forced codec 
+                ImageCodecInfo codec = null;
+                
                 if (formatSelection.Current.Text == "JPG")
                 {
                     codec = imageCompressor.GetCodec(ImageFormat.Jpeg);
                 }
                 else if (formatSelection.Current.Text == "PNG")
                 {
-                    codec = imageCompressor.GetCodec(ImageFormat.Png);
+                    codec = imageCompressor.GetCodec(ImageFormat.Png);                    
                 }
+
+                // Update output filename for forced codec
+                string outputFilename = file.Substring(file.LastIndexOf('\\') + 1);
+                if (codec != null)
+                {
+                    outputFilename += $".{formatSelection.Current.Text}";
+                }
+                // Or keep current codec
                 else
                 {
                     codec = imageCompressor.GetCurrentCodec();
                 }
                 
-
-                // Type of resizing
-                Bitmap resized = null; // Null for original size
-                if(size == true)
-                {
-                    resized = imageCompressor.ResizeMaxDimensions(width, height);
-                }
-                if(percentage == true)
-                {
-                    resized = imageCompressor.ResizePercentage(pbPercent.Value / 100f);
-                }
-
                 // Encode and save
                 imageCompressor.EncodeAndSave(
                     codec,
-                    directory + "\\" + file.Substring(file.LastIndexOf('\\') + 1),
-                    quality, 
+                    directory + "\\" + outputFilename,
+                    pbQuality.Value, 
                     resized);
 
             }
