@@ -118,8 +118,6 @@ namespace Picsor
             return pfc;
         }
 
-        
-
         protected override CreateParams CreateParams
         {
             get

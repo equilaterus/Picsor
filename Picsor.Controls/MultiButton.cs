@@ -23,7 +23,7 @@ namespace Picsor.Controls
         {
             if (Current != null)
             {
-                Current.BackColor = Color.FromArgb(24, 24, 24);
+                Current.BackColor = Color.FromArgb(20, 20, 20);
                 Current.ForeColor = Color.Silver;
             }
             var btn = sender as Button;

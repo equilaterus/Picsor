@@ -29,6 +29,8 @@ namespace Picsor
             panelTop.MouseUp += new MouseEventHandler(Form_MouseUp);
             panelTop.MouseMove += new MouseEventHandler(Form_MouseMove);
         }
+
+
         Boolean percentage;
         Boolean size;
         private PrivateFontCollection _Pfc;
@@ -44,6 +46,7 @@ namespace Picsor
                 }
                 else
                 {
+                    if (control.Name == "btnClose") continue;
                     control.Font = new Font(_Pfc.Families[0], control.Font.Size);
                     CustomizeControls(control.Controls);
                 }
