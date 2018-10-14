@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ResizingSelection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ResizingSelection.Designer.cs">
+      <DependentUpon>ResizingSelection.cs</DependentUpon>
+    </Compile>
     <Compile Include="IFontCustomizable.cs" />
     <Compile Include="FormatSelection.cs">
       <SubType>UserControl</SubType>
@@ -61,8 +67,14 @@
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ResizingSelection.resx">
+      <DependentUpon>ResizingSelection.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormatSelection.resx">
       <DependentUpon>FormatSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultiButton.resx">
+      <DependentUpon>MultiButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PercentBox.resx">
       <DependentUpon>PercentBox.cs</DependentUpon>

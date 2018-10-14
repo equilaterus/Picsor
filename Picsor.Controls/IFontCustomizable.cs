@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace Picsor.Controls
 {
+    /// <summary>
+    /// Changes the font only for the specified components in SetCustomFont
+    /// </summary>
     public interface IFontCustomizable
     {
-        void SetCustomFont(FontFamily font, int baseSize);
+        void SetCustomFont(FontFamily font);
     }
 }

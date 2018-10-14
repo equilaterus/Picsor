@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Picsor
 {
-    public class PicsorForm : Form
+    public class BaseForm : Form
     {
         private const int
             HTLEFT = 10,
@@ -41,7 +41,7 @@ namespace Picsor
             // 
             // PicsorForm
             // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            //this.ClientSize = new System.Drawing.Size(284, 261);
             this.Name = "PicsorForm";            
             this.ResumeLayout(false);
         }
@@ -116,6 +116,19 @@ namespace Picsor
             Marshal.FreeCoTaskMem(data);
             
             return pfc;
+        }
+
+        
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
         }
     }
 }

@@ -12,6 +12,8 @@ namespace Picsor.Controls
     {
         public Button Current { get; private set; }
 
+        public event EventHandler ButtonChanged;
+
         protected void SetDefault(object defaultButton)
         {
             HandleMultiButton_Click(defaultButton, null);
@@ -29,9 +31,22 @@ namespace Picsor.Controls
             {
                 btn.BackColor = Color.FromArgb(86, 105, 53);
                 btn.ForeColor = Color.FromArgb(136, 234, 17);
-                //btn.ForeColor = Color.FromArgb(224, 224, 224);
                 Current = btn;
+
+                // Trigger event
+                ButtonChanged?.Invoke(sender, e);
             }
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // MultiButton
+            // 
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.Name = "MultiButton";
+            this.ResumeLayout(false);
         }
     }
 }

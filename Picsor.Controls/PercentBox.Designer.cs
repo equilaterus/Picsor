@@ -45,7 +45,7 @@
             this.btnLeft.ForeColor = System.Drawing.Color.Silver;
             this.btnLeft.Location = new System.Drawing.Point(0, 0);
             this.btnLeft.Name = "btnLeft";
-            this.btnLeft.Size = new System.Drawing.Size(20, 54);
+            this.btnLeft.Size = new System.Drawing.Size(20, 44);
             this.btnLeft.TabIndex = 0;
             this.btnLeft.Text = "◄";
             this.btnLeft.UseVisualStyleBackColor = false;
@@ -61,10 +61,9 @@
             this.btnRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRight.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRight.ForeColor = System.Drawing.Color.Silver;
-            this.btnRight.Location = new System.Drawing.Point(160, 0);
+            this.btnRight.Location = new System.Drawing.Point(121, 0);
             this.btnRight.Name = "btnRight";
-            this.btnRight.Padding = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.btnRight.Size = new System.Drawing.Size(20, 54);
+            this.btnRight.Size = new System.Drawing.Size(20, 44);
             this.btnRight.TabIndex = 1;
             this.btnRight.Text = "►";
             this.btnRight.UseVisualStyleBackColor = false;
@@ -72,14 +71,14 @@
             // 
             // tbPercentage
             // 
-            this.tbPercentage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.tbPercentage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.tbPercentage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPercentage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPercentage.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPercentage.ForeColor = System.Drawing.Color.Silver;
-            this.tbPercentage.Location = new System.Drawing.Point(20, 0);
+            this.tbPercentage.Location = new System.Drawing.Point(0, 0);
             this.tbPercentage.Name = "tbPercentage";
-            this.tbPercentage.Size = new System.Drawing.Size(140, 60);
+            this.tbPercentage.Size = new System.Drawing.Size(141, 33);
             this.tbPercentage.TabIndex = 2;
             this.tbPercentage.Text = "100";
             this.tbPercentage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -90,12 +89,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.Controls.Add(this.tbPercentage);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.Controls.Add(this.btnRight);
             this.Controls.Add(this.btnLeft);
+            this.Controls.Add(this.tbPercentage);
             this.Name = "PercentBox";
-            this.Size = new System.Drawing.Size(180, 54);
+            this.Size = new System.Drawing.Size(141, 44);
             this.ResumeLayout(false);
             this.PerformLayout();
 

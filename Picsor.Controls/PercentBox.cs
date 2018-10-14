@@ -32,6 +32,7 @@ namespace Picsor.Controls
 
         public int MaxValue { get; set; } = 100;
         public int MinValue { get; set; } = 0;
+        public int OverrideFontSize { get; set; }
         
         public PercentBox()
         {
@@ -53,23 +54,21 @@ namespace Picsor.Controls
             if (tbPercentage.Text.Length == 0)
                 return;
 
-            btnLeft.Visible = true;
-            btnRight.Visible = true;
+            btnLeft.Enabled = true;
+            btnRight.Enabled = true;
 
             if (Value >= MaxValue)
             {
                 tbPercentage.Text = MaxValue.ToString(); ;
                 Value = MaxValue;
-                btnRight.Visible = false;
+                btnRight.Enabled = false;
             }
             else if (Value <= MinValue)
             {
                 tbPercentage.Text = MinValue.ToString();
                 Value = MinValue;
-                btnLeft.Visible = false;
+                btnLeft.Enabled = false;
             }
-            
-
         }
 
         private void tbPercentage_KeyPress(object sender, KeyPressEventArgs e)
@@ -80,9 +79,9 @@ namespace Picsor.Controls
             }
         }
 
-        public void SetCustomFont(FontFamily font, int baseSize)
+        public void SetCustomFont(FontFamily font)
         {
-            tbPercentage.Font = new Font(font, baseSize);
+            tbPercentage.Font = new Font(font, OverrideFontSize > 0 ? OverrideFontSize : tbPercentage.Font.Size);
         }
     }
 }

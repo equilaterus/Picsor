@@ -16,11 +16,14 @@ using System.Windows.Forms;
 
 namespace Picsor
 {
-    public partial class MainForm : PicsorForm
+    public partial class MainForm : BaseForm
     {
         public MainForm()
         {   
             InitializeComponent();
+
+            resizingSelection_Click(null, null);
+            resizingSelection.ButtonChanged += new EventHandler(resizingSelection_Click);
 
             panelTop.MouseDown += new MouseEventHandler(Form_MouseDown);
             panelTop.MouseUp += new MouseEventHandler(Form_MouseUp);
@@ -37,7 +40,7 @@ namespace Picsor
                 var customizableControl = control as IFontCustomizable;
                 if (customizableControl != null)
                 {
-                    customizableControl.SetCustomFont(_Pfc.Families[0], 40);
+                    customizableControl.SetCustomFont(_Pfc.Families[0]);
                 }
                 else
                 {
@@ -49,7 +52,7 @@ namespace Picsor
         
         private void MainForm_Load(object sender, EventArgs e)
         {
-            _Pfc = LoadFont(Properties.Resources.Dosis_Regular);
+            _Pfc = LoadFont(Properties.Resources.BaiJamjuree_Regular);
 
             CustomizeControls(Controls);
         }
@@ -57,13 +60,31 @@ namespace Picsor
         private void btnSearch_Click(object sender, EventArgs e)
         {
             openFileDialog.ShowDialog();
-            if (openFileDialog.FileNames.Count() != 0)
+            for (int i = 0; i < openFileDialog.FileNames.Count(); i++)
             {
-                ExecuteCompression();
+                try
+                {
+                    var path = openFileDialog.FileNames[i];
+                    imagesList.Images.Add(Image.FromFile(path));
+                    listviewImages.Items.Add(
+                        new ListViewItem
+                        {
+                            ImageIndex = i,
+                            Text = path.Substring(path.LastIndexOf('\\') + 1)
+                        });
+
+                }
+                catch
+                {
+                    MessageBox.Show("Error");
+                }
+                
             }
+
+            listviewImages.LargeImageList = imagesList;
         }
 
-        private void ExecuteCompression()
+        private void btnExecute_Click(object sender, EventArgs e)
         {
             picsorBackgroundWorker.RunWorkerAsync();
         }
@@ -130,17 +151,18 @@ namespace Picsor
             Close();
         }
 
-        private void btnPercentage_Click(object sender, EventArgs e)
+        private void resizingSelection_Click(object sender, EventArgs e)
         {
-            percentage = true;
-            size = false;
-
-        }
-
-        private void btnSize_Click(object sender, EventArgs e)
-        {
-            size = true;
-            percentage = false;
+            if (resizingSelection.Current.Text == "Size")
+            {
+                panelSize.Visible = true;
+                panelPercentage.Visible = false;
+            }
+            else
+            {
+                panelSize.Visible = false;
+                panelPercentage.Visible = true;
+            }
         }
     }
 }

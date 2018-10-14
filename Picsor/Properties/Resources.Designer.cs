@@ -63,9 +63,9 @@ namespace Picsor.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Dosis_Regular {
+        internal static byte[] BaiJamjuree_Regular {
             get {
-                object obj = ResourceManager.GetObject("Dosis_Regular", resourceCulture);
+                object obj = ResourceManager.GetObject("BaiJamjuree_Regular", resourceCulture);
                 return ((byte[])(obj));
             }
         }
