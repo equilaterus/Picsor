@@ -36,32 +36,32 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelProfile = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnExecute = new System.Windows.Forms.Button();
             this.listviewImages = new System.Windows.Forms.ListView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panelPercentage = new System.Windows.Forms.Panel();
-            this.pbPercent = new Picsor.Controls.PercentBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panelSize = new System.Windows.Forms.Panel();
-            this.pbMaxheight = new Picsor.Controls.PercentBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.pbMaxWidth = new Picsor.Controls.PercentBox();
-            this.resizingSelection = new Picsor.Controls.ResizingSelection();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.formatSelection = new Picsor.Controls.FormatSelection();
-            this.pbQuality = new Picsor.Controls.PercentBox();
             this.label6 = new System.Windows.Forms.Label();
             this.picsorBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.imagesList = new System.Windows.Forms.ImageList(this.components);
+            this.loadingPanel = new Picsor.Controls.LoadingPanel();
+            this.pbPercent = new Picsor.Controls.PercentBox();
+            this.pbMaxheight = new Picsor.Controls.PercentBox();
+            this.pbMaxWidth = new Picsor.Controls.PercentBox();
+            this.resizingSelection = new Picsor.Controls.ResizingSelection();
+            this.formatSelection = new Picsor.Controls.FormatSelection();
+            this.pbQuality = new Picsor.Controls.PercentBox();
             this.panel1.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panelProfile.SuspendLayout();
@@ -126,7 +126,7 @@
             this.panelTop.Controls.Add(this.label1);
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1151, 31);
+            this.panelTop.Size = new System.Drawing.Size(944, 31);
             this.panelTop.TabIndex = 3;
             // 
             // btnClose
@@ -138,7 +138,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnClose.Location = new System.Drawing.Point(1109, 0);
+            this.btnClose.Location = new System.Drawing.Point(902, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(42, 31);
             this.btnClose.TabIndex = 1;
@@ -162,7 +162,6 @@
             this.panelProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelProfile.Controls.Add(this.label4);
             this.panelProfile.Controls.Add(this.btnExecute);
             this.panelProfile.Controls.Add(this.listviewImages);
             this.panelProfile.Controls.Add(this.btnSearch);
@@ -172,17 +171,6 @@
             this.panelProfile.Name = "panelProfile";
             this.panelProfile.Size = new System.Drawing.Size(597, 519);
             this.panelProfile.TabIndex = 4;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(131)))), ((int)(((byte)(131)))), ((int)(((byte)(131)))));
-            this.label4.Location = new System.Drawing.Point(33, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 33);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Profile 1";
             // 
             // btnExecute
             // 
@@ -206,11 +194,11 @@
             this.listviewImages.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.listviewImages.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.listviewImages.HideSelection = false;
-            this.listviewImages.Location = new System.Drawing.Point(24, 334);
+            this.listviewImages.Location = new System.Drawing.Point(24, 286);
             this.listviewImages.Margin = new System.Windows.Forms.Padding(0);
             this.listviewImages.MultiSelect = false;
             this.listviewImages.Name = "listviewImages";
-            this.listviewImages.Size = new System.Drawing.Size(546, 113);
+            this.listviewImages.Size = new System.Drawing.Size(546, 161);
             this.listviewImages.TabIndex = 0;
             this.listviewImages.UseCompatibleStateImageBehavior = false;
             // 
@@ -221,7 +209,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnSearch.Location = new System.Drawing.Point(33, 292);
+            this.btnSearch.Location = new System.Drawing.Point(33, 238);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(528, 30);
             this.btnSearch.TabIndex = 5;
@@ -236,7 +224,7 @@
             this.panel5.Controls.Add(this.panel6);
             this.panel5.Controls.Add(this.panelSize);
             this.panel5.Controls.Add(this.resizingSelection);
-            this.panel5.Location = new System.Drawing.Point(24, 78);
+            this.panel5.Location = new System.Drawing.Point(24, 26);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(308, 197);
             this.panel5.TabIndex = 3;
@@ -249,18 +237,6 @@
             this.panelPercentage.Name = "panelPercentage";
             this.panelPercentage.Size = new System.Drawing.Size(126, 100);
             this.panelPercentage.TabIndex = 13;
-            // 
-            // pbPercent
-            // 
-            this.pbPercent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.pbPercent.Location = new System.Drawing.Point(3, 3);
-            this.pbPercent.MaxValue = 100;
-            this.pbPercent.MinValue = 0;
-            this.pbPercent.Name = "pbPercent";
-            this.pbPercent.OverrideFontSize = 0;
-            this.pbPercent.Size = new System.Drawing.Size(119, 44);
-            this.pbPercent.TabIndex = 1;
-            this.pbPercent.Value = 100;
             // 
             // label11
             // 
@@ -306,19 +282,6 @@
             this.panelSize.Size = new System.Drawing.Size(292, 88);
             this.panelSize.TabIndex = 13;
             // 
-            // pbMaxheight
-            // 
-            this.pbMaxheight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.pbMaxheight.Location = new System.Drawing.Point(6, 7);
-            this.pbMaxheight.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.pbMaxheight.MaxValue = 9999;
-            this.pbMaxheight.MinValue = 0;
-            this.pbMaxheight.Name = "pbMaxheight";
-            this.pbMaxheight.OverrideFontSize = 22;
-            this.pbMaxheight.Size = new System.Drawing.Size(141, 44);
-            this.pbMaxheight.TabIndex = 2;
-            this.pbMaxheight.Value = 9998;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -341,28 +304,6 @@
             this.label8.TabIndex = 4;
             this.label8.Text = "Max height (px)";
             // 
-            // pbMaxWidth
-            // 
-            this.pbMaxWidth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.pbMaxWidth.Location = new System.Drawing.Point(148, 7);
-            this.pbMaxWidth.MaxValue = 9999;
-            this.pbMaxWidth.MinValue = 0;
-            this.pbMaxWidth.Name = "pbMaxWidth";
-            this.pbMaxWidth.OverrideFontSize = 22;
-            this.pbMaxWidth.Size = new System.Drawing.Size(141, 44);
-            this.pbMaxWidth.TabIndex = 3;
-            this.pbMaxWidth.Value = 9998;
-            // 
-            // resizingSelection
-            // 
-            this.resizingSelection.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.resizingSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.resizingSelection.Location = new System.Drawing.Point(9, 49);
-            this.resizingSelection.Name = "resizingSelection";
-            this.resizingSelection.Size = new System.Drawing.Size(292, 43);
-            this.resizingSelection.TabIndex = 1;
-            this.resizingSelection.Click += new System.EventHandler(this.resizingSelection_Click);
-            // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -370,7 +311,7 @@
             this.panel4.Controls.Add(this.formatSelection);
             this.panel4.Controls.Add(this.pbQuality);
             this.panel4.Controls.Add(this.label6);
-            this.panel4.Location = new System.Drawing.Point(342, 78);
+            this.panel4.Location = new System.Drawing.Point(342, 26);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(228, 197);
             this.panel4.TabIndex = 4;
@@ -397,26 +338,6 @@
             this.label5.Text = "Encoding";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // formatSelection
-            // 
-            this.formatSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.formatSelection.Location = new System.Drawing.Point(7, 49);
-            this.formatSelection.Name = "formatSelection";
-            this.formatSelection.Size = new System.Drawing.Size(212, 43);
-            this.formatSelection.TabIndex = 2;
-            // 
-            // pbQuality
-            // 
-            this.pbQuality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.pbQuality.Location = new System.Drawing.Point(53, 99);
-            this.pbQuality.MaxValue = 100;
-            this.pbQuality.MinValue = 0;
-            this.pbQuality.Name = "pbQuality";
-            this.pbQuality.OverrideFontSize = 0;
-            this.pbQuality.Size = new System.Drawing.Size(119, 44);
-            this.pbQuality.TabIndex = 3;
-            this.pbQuality.Value = 100;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -431,6 +352,7 @@
             // picsorBackgroundWorker
             // 
             this.picsorBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.picsorBackgroundWorker_DoWork);
+            this.picsorBackgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.picsorBackgroundWorker_RunWorkerCompleted);
             // 
             // openFileDialog
             // 
@@ -457,12 +379,89 @@
             this.imagesList.ImageSize = new System.Drawing.Size(64, 64);
             this.imagesList.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // loadingPanel
+            // 
+            this.loadingPanel.AutoSize = true;
+            this.loadingPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            this.loadingPanel.Location = new System.Drawing.Point(168, 102);
+            this.loadingPanel.Name = "loadingPanel";
+            this.loadingPanel.Size = new System.Drawing.Size(628, 243);
+            this.loadingPanel.TabIndex = 6;
+            // 
+            // pbPercent
+            // 
+            this.pbPercent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pbPercent.Location = new System.Drawing.Point(3, 3);
+            this.pbPercent.MaxValue = 100;
+            this.pbPercent.MinValue = 0;
+            this.pbPercent.Name = "pbPercent";
+            this.pbPercent.OverrideFontSize = 0;
+            this.pbPercent.Size = new System.Drawing.Size(119, 44);
+            this.pbPercent.TabIndex = 1;
+            this.pbPercent.Value = 100;
+            // 
+            // pbMaxheight
+            // 
+            this.pbMaxheight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pbMaxheight.Location = new System.Drawing.Point(6, 7);
+            this.pbMaxheight.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.pbMaxheight.MaxValue = 9999;
+            this.pbMaxheight.MinValue = 0;
+            this.pbMaxheight.Name = "pbMaxheight";
+            this.pbMaxheight.OverrideFontSize = 22;
+            this.pbMaxheight.Size = new System.Drawing.Size(141, 44);
+            this.pbMaxheight.TabIndex = 2;
+            this.pbMaxheight.Value = 9998;
+            // 
+            // pbMaxWidth
+            // 
+            this.pbMaxWidth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pbMaxWidth.Location = new System.Drawing.Point(148, 7);
+            this.pbMaxWidth.MaxValue = 9999;
+            this.pbMaxWidth.MinValue = 0;
+            this.pbMaxWidth.Name = "pbMaxWidth";
+            this.pbMaxWidth.OverrideFontSize = 22;
+            this.pbMaxWidth.Size = new System.Drawing.Size(141, 44);
+            this.pbMaxWidth.TabIndex = 3;
+            this.pbMaxWidth.Value = 9998;
+            // 
+            // resizingSelection
+            // 
+            this.resizingSelection.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.resizingSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.resizingSelection.Location = new System.Drawing.Point(9, 49);
+            this.resizingSelection.Name = "resizingSelection";
+            this.resizingSelection.Size = new System.Drawing.Size(292, 43);
+            this.resizingSelection.TabIndex = 1;
+            this.resizingSelection.Click += new System.EventHandler(this.resizingSelection_Click);
+            // 
+            // formatSelection
+            // 
+            this.formatSelection.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.formatSelection.Location = new System.Drawing.Point(7, 49);
+            this.formatSelection.Name = "formatSelection";
+            this.formatSelection.Size = new System.Drawing.Size(212, 43);
+            this.formatSelection.TabIndex = 2;
+            // 
+            // pbQuality
+            // 
+            this.pbQuality.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pbQuality.Location = new System.Drawing.Point(53, 99);
+            this.pbQuality.MaxValue = 100;
+            this.pbQuality.MinValue = 0;
+            this.pbQuality.Name = "pbQuality";
+            this.pbQuality.OverrideFontSize = 0;
+            this.pbQuality.Size = new System.Drawing.Size(119, 44);
+            this.pbQuality.TabIndex = 3;
+            this.pbQuality.Value = 100;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.ClientSize = new System.Drawing.Size(1150, 553);
+            this.ClientSize = new System.Drawing.Size(943, 553);
+            this.Controls.Add(this.loadingPanel);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -475,7 +474,6 @@
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.panelProfile.ResumeLayout(false);
-            this.panelProfile.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panelPercentage.ResumeLayout(false);
             this.panelPercentage.PerformLayout();
@@ -487,6 +485,7 @@
             this.panel7.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -519,11 +518,11 @@
         private System.Windows.Forms.ListView listviewImages;
         private System.Windows.Forms.ImageList imagesList;
         private System.Windows.Forms.Button btnExecute;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label5;
+        private Controls.LoadingPanel loadingPanel;
     }
 }
 

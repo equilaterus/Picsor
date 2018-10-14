@@ -22,6 +22,9 @@ namespace Picsor
         {   
             InitializeComponent();
 
+            loadingPanel.Visible = false;
+            loadingPanel.AcceptButton += new EventHandler(AcceptResults);
+
             resizingSelection_Click(null, null);
             resizingSelection.ButtonChanged += new EventHandler(resizingSelection_Click);
 
@@ -56,7 +59,21 @@ namespace Picsor
 
             CustomizeControls(Controls);
         }
-        
+
+        private void resizingSelection_Click(object sender, EventArgs e)
+        {
+            if (resizingSelection.Current.Text == "Size")
+            {
+                panelSize.Visible = true;
+                panelPercentage.Visible = false;
+            }
+            else
+            {
+                panelSize.Visible = false;
+                panelPercentage.Visible = true;
+            }
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             openFileDialog.ShowDialog();
@@ -88,14 +105,27 @@ namespace Picsor
 
         private void btnExecute_Click(object sender, EventArgs e)
         {
+            panelProfile.Visible = false;
+            loadingPanel.Visible = true;
             picsorBackgroundWorker.RunWorkerAsync();
+        }
+
+        private void picsorBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            loadingPanel.Completed();
+        }
+
+        private void AcceptResults(object sender, EventArgs e)
+        {
+            panelProfile.Visible = true;
+            loadingPanel.Visible = false;
         }
 
         private void picsorBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
             string directory = openFileDialog
                 .FileName.Substring(0, openFileDialog.FileName.LastIndexOf('\\'))
-                                  + "\\Converted";
+                                  + "\\PicsorConverted";
 
             if (!Directory.Exists(directory))
             {
@@ -154,20 +184,6 @@ namespace Picsor
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void resizingSelection_Click(object sender, EventArgs e)
-        {
-            if (resizingSelection.Current.Text == "Size")
-            {
-                panelSize.Visible = true;
-                panelPercentage.Visible = false;
-            }
-            else
-            {
-                panelSize.Visible = false;
-                panelPercentage.Visible = true;
-            }
-        }
+        }        
     }
 }
