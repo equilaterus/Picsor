@@ -22,5 +22,15 @@ namespace Picsor.Controls
         {
             base.HandleMultiButton_Click(sender, e);
         }
+
+        public void SetCurrent(string text)
+        {
+            switch (text)
+            {
+                case "JPG": btnJpg.PerformClick();      break;
+                case "PNG": btnPng.PerformClick();      break;
+                default:    btnPreserve.PerformClick(); break;
+            }
+        }
     }
 }

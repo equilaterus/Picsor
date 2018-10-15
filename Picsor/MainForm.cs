@@ -22,11 +22,9 @@ namespace Picsor
         {   
             InitializeComponent();
 
-            loadingPanel.Visible = false;
-            loadingPanel.AcceptButton += new EventHandler(AcceptResults);
-
-            resizingSelection_Click(null, null);
-            resizingSelection.ButtonChanged += new EventHandler(resizingSelection_Click);
+            
+            loadingPanel.AcceptButton += new EventHandler(AcceptResults);            
+            resizingSelection.ButtonChanged += new EventHandler(resizingSelection_Click);           
 
             panelTop.MouseDown += new MouseEventHandler(Form_MouseDown);
             panelTop.MouseUp += new MouseEventHandler(Form_MouseUp);
@@ -34,6 +32,8 @@ namespace Picsor
         }
 
         private PrivateFontCollection _Pfc;
+
+        private string _directory;
 
         private void CustomizeControls(Control.ControlCollection controls)
         {
@@ -55,9 +55,16 @@ namespace Picsor
         
         private void MainForm_Load(object sender, EventArgs e)
         {
+            loadingPanel.Visible = false;
+            listviewImages.Visible = false;
+            btnExecute.Visible = false;
+
             _Pfc = LoadFont(Properties.Resources.BaiJamjuree_Regular);
 
             CustomizeControls(Controls);
+
+            resizingSelection_Click(null, null);
+            btn1080_Click(null, null);
         }
 
         private void resizingSelection_Click(object sender, EventArgs e)
@@ -74,11 +81,16 @@ namespace Picsor
             }
         }
 
+        private void ClearImages()
+        {
+            imagesList.Images.Clear();
+            listviewImages.Clear();
+        }
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
             openFileDialog.ShowDialog();
-            imagesList.Images.Clear();
-            listviewImages.Clear();
+            ClearImages();
             for (int i = 0; i < openFileDialog.FileNames.Count(); i++)
             {
                 try
@@ -101,35 +113,47 @@ namespace Picsor
             }
 
             listviewImages.LargeImageList = imagesList;
+
+            lbInstructions.Visible = false;
+            lbPicsorInstuctions.Visible = false;
+            listviewImages.Visible = true;
+            btnExecute.Visible = true;
         }
 
         private void btnExecute_Click(object sender, EventArgs e)
         {
             panelProfile.Visible = false;
             loadingPanel.Visible = true;
+            btn1080.Visible = false;
+            btn720.Visible = false;            
             picsorBackgroundWorker.RunWorkerAsync();
         }
 
         private void picsorBackgroundWorker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            loadingPanel.Completed();
+            loadingPanel.Completed(_directory);
         }
 
         private void AcceptResults(object sender, EventArgs e)
         {
+            listviewImages.Visible = false;
+            btnExecute.Visible = false;
             panelProfile.Visible = true;
             loadingPanel.Visible = false;
+            btn1080.Visible = true;
+            btn720.Visible = true;            
+            ClearImages();
         }
 
         private void picsorBackgroundWorker_DoWork(object sender, DoWorkEventArgs e)
         {
-            string directory = openFileDialog
+            _directory = openFileDialog
                 .FileName.Substring(0, openFileDialog.FileName.LastIndexOf('\\'))
                                   + "\\PicsorConverted";
 
-            if (!Directory.Exists(directory))
+            if (!Directory.Exists(_directory))
             {
-                Directory.CreateDirectory(directory);
+                Directory.CreateDirectory(_directory);
             }
 
             foreach (var file in openFileDialog.FileNames)
@@ -138,13 +162,13 @@ namespace Picsor
 
                 // Type of resizing
                 Bitmap resized = null;
-                if(panelSize.Visible == true)
+                if(resizingSelection.Current.Text == "Size")
                 {
-                    resized = imageCompressor.ResizeMaxDimensions(pbMaxWidth.Value, pbMaxheight.Value);
+                    resized = imageCompressor.GetResizeUsingMaxDimensions(pbMaxWidth.Value, pbMaxHeight.Value);
                 }
-                if(panelPercentage.Visible == true)
+                else if (pbPercent.Value != 100)
                 {
-                    resized = imageCompressor.ResizePercentage(pbPercent.Value / 100f);
+                    resized = imageCompressor.GetResizedUsingPercentage(pbPercent.Value / 100f);
                 }
 
                 // Define forced codec 
@@ -174,7 +198,7 @@ namespace Picsor
                 // Encode and save
                 imageCompressor.EncodeAndSave(
                     codec,
-                    directory + "\\" + outputFilename,
+                    _directory + "\\" + outputFilename,
                     pbQuality.Value, 
                     resized);
 
@@ -184,6 +208,26 @@ namespace Picsor
         private void btnClose_Click(object sender, EventArgs e)
         {
             Close();
-        }        
+        }
+
+        private void btn1080_Click(object sender, EventArgs e)
+        {
+            resizingSelection.SetCurrent("Size");
+            pbMaxWidth.Value = 1920;
+            pbMaxHeight.Value = 1080;
+
+            formatSelection.SetCurrent("Keep");
+            pbQuality.Value = 90;
+        }
+
+        private void btn720_Click(object sender, EventArgs e)
+        {
+            resizingSelection.SetCurrent("Size");
+            pbMaxWidth.Value = 1280;
+            pbMaxHeight.Value = 720;
+
+            formatSelection.SetCurrent("Keep");
+            pbQuality.Value = 80;
+        }
     }
 }

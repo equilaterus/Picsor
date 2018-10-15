@@ -48,7 +48,7 @@
             this.btnJpg.Location = new System.Drawing.Point(273, 3);
             this.btnJpg.Name = "btnJpg";
             this.btnJpg.Size = new System.Drawing.Size(129, 43);
-            this.btnJpg.TabIndex = 0;
+            this.btnJpg.TabIndex = 2;
             this.btnJpg.Text = "JPG";
             this.btnJpg.UseVisualStyleBackColor = false;
             this.btnJpg.Click += new System.EventHandler(this.Button_Click);
@@ -84,7 +84,7 @@
             this.btnPreserve.Location = new System.Drawing.Point(3, 3);
             this.btnPreserve.Name = "btnPreserve";
             this.btnPreserve.Size = new System.Drawing.Size(129, 43);
-            this.btnPreserve.TabIndex = 2;
+            this.btnPreserve.TabIndex = 0;
             this.btnPreserve.Text = "Keep";
             this.btnPreserve.UseVisualStyleBackColor = false;
             this.btnPreserve.Click += new System.EventHandler(this.Button_Click);

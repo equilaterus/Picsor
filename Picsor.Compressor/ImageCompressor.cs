@@ -74,7 +74,7 @@ namespace Picsor.Compressor
             }
         }
 
-        public Bitmap Resize(int width, int height)
+        public Bitmap GetResized(int width, int height)
         {            
             var resizedImage = new Bitmap(width, height);
             using (var graphics = Graphics.FromImage(resizedImage))

@@ -22,5 +22,17 @@ namespace Picsor.Controls
         {
             base.HandleMultiButton_Click(sender, e);
         }
+
+        public void SetCurrent(string text)
+        {
+            if (text == "Size")
+            {
+                btnSize.PerformClick();
+            }
+            else
+            {
+                btnPercentage.PerformClick();
+            }
+        }
     }
 }

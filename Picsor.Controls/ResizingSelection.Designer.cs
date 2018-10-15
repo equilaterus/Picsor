@@ -67,7 +67,7 @@
             this.btnPercentage.Location = new System.Drawing.Point(3, 3);
             this.btnPercentage.Name = "btnPercentage";
             this.btnPercentage.Size = new System.Drawing.Size(117, 40);
-            this.btnPercentage.TabIndex = 2;
+            this.btnPercentage.TabIndex = 0;
             this.btnPercentage.Text = "Percentage";
             this.btnPercentage.UseVisualStyleBackColor = false;
             this.btnPercentage.Click += new System.EventHandler(this.Button_Click);

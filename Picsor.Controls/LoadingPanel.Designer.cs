@@ -30,8 +30,9 @@
         {
             this.pbLoading = new System.Windows.Forms.ProgressBar();
             this.lbLoading = new System.Windows.Forms.Label();
-            this.btnAccept = new System.Windows.Forms.Button();
+            this.btnOpen = new System.Windows.Forms.Button();
             this.lbResult = new System.Windows.Forms.Label();
+            this.btnAccept = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pbLoading
@@ -56,21 +57,21 @@
             this.lbLoading.Text = "We are optimizing your images";
             this.lbLoading.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnAccept
+            // btnOpen
             // 
-            this.btnAccept.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAccept.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(234)))), ((int)(((byte)(17)))));
-            this.btnAccept.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(105)))), ((int)(((byte)(53)))));
-            this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccept.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAccept.Location = new System.Drawing.Point(78, 146);
-            this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(338, 30);
-            this.btnAccept.TabIndex = 2;
-            this.btnAccept.Text = "Ok";
-            this.btnAccept.UseVisualStyleBackColor = true;
-            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            this.btnOpen.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnOpen.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(234)))), ((int)(((byte)(17)))));
+            this.btnOpen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(105)))), ((int)(((byte)(53)))));
+            this.btnOpen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnOpen.Location = new System.Drawing.Point(78, 146);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(338, 30);
+            this.btnOpen.TabIndex = 0;
+            this.btnOpen.Text = "Open folder and continue";
+            this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // lbResult
             // 
@@ -86,18 +87,35 @@
     "al location.";
             this.lbResult.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // btnAccept
+            // 
+            this.btnAccept.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAccept.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(234)))), ((int)(((byte)(17)))));
+            this.btnAccept.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(86)))), ((int)(((byte)(105)))), ((int)(((byte)(53)))));
+            this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccept.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAccept.Location = new System.Drawing.Point(77, 191);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(338, 30);
+            this.btnAccept.TabIndex = 1;
+            this.btnAccept.Text = "Continue";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
+            // 
             // LoadingPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            this.Controls.Add(this.lbResult);
             this.Controls.Add(this.btnAccept);
+            this.Controls.Add(this.lbResult);
+            this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.lbLoading);
             this.Controls.Add(this.pbLoading);
             this.Name = "LoadingPanel";
-            this.Size = new System.Drawing.Size(492, 251);
+            this.Size = new System.Drawing.Size(492, 246);
             this.ResumeLayout(false);
 
         }
@@ -106,7 +124,8 @@
 
         private System.Windows.Forms.ProgressBar pbLoading;
         private System.Windows.Forms.Label lbLoading;
-        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Label lbResult;
+        private System.Windows.Forms.Button btnAccept;
     }
 }
