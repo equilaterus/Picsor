@@ -25,7 +25,7 @@ namespace Picsor.Compressor
             var percentageWidth = (float)imageCompressor.ImageWidth / MaxWidth;
             var percentageHeight = (float)imageCompressor.ImageHeight / MaxHeight;
 
-            if (percentageWidth <= 0 && percentageHeight <= 0)
+            if (percentageWidth < 1 && percentageHeight < 1)
                 return null;
 
             if (percentageWidth > percentageHeight)

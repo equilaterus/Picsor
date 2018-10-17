@@ -18,8 +18,12 @@ An easy to use desktop app that uses **System.Drawing** to compress images achie
 
 | **Branch** | Version |
 | ------------- | -----:|
-| **Master**        | 0.0-prealpha.1  |
+| **Master**        | 0.0-prealpha.2  |
 | **Dev-unstable**  | 0.2-alpha.unreleased  |
 
 
-* Github releases: [Download center](https://github.com/equilaterus/Picsor/releases)
+## Versions
+
+* Github releases: [Downloads](https://github.com/equilaterus/Picsor/releases)
+
+* Version change log: [Change log](https://github.com/equilaterus/Picsor/wiki/Version-change-log)
